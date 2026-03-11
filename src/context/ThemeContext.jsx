@@ -95,13 +95,7 @@ const NIGHT_COLORS = {
 }
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    try {
-      return localStorage.getItem('miraweb-theme') || 'dark'
-    } catch {
-      return 'dark'
-    }
-  })
+  const [theme, setTheme] = useState('pastel-pink')
 
   const [nightMode, setNightMode] = useState(() => {
     try {
