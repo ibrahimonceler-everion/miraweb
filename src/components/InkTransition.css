@@ -1,0 +1,37 @@
+.ink-transition {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ink-transition__defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.ink-transition__content {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ink-transition__edge-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    transparent 30%,
+    var(--rose-accent-10) 60%,
+    transparent 80%
+  );
+}
+
+@media (max-width: 768px) {
+  .ink-transition__content {
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,108 @@
+/* ========================
+   GIZLI PAGE - Secret Room
+   ======================== */
+.inner-page--gizli {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(ellipse at center, var(--dark-surface) 0%, var(--dark-base) 70%);
+}
+
+.inner-page--gizli .inner-page__page-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.gizli-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 480px;
+  width: 100%;
+}
+
+.gizli-content__poem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gizli-content__poem-line {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+.gizli-content__note {
+  padding: 1.5rem;
+  border: 1px solid var(--dark-border);
+  border-radius: 3px;
+  background: var(--dark-card);
+  text-align: left;
+  width: 100%;
+}
+
+.gizli-content__note-title {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.gizli-content__note-text {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--text-medium);
+  margin-bottom: 0.75rem;
+}
+
+.gizli-content__note-text:last-of-type {
+  margin-bottom: 0;
+}
+
+.gizli-content__signature {
+  text-align: right;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--dark-border);
+}
+
+.gizli-content__signature-text {
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  color: var(--rose-primary);
+  font-style: italic;
+}
+
+.gizli-content__hint {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .gizli-content {
+    gap: 2rem;
+  }
+
+  .gizli-content__poem-line {
+    font-size: 0.95rem;
+  }
+
+  .gizli-content__note {
+    padding: 1.25rem;
+  }
+}

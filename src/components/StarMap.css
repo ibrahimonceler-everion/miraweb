@@ -1,0 +1,50 @@
+.star-map {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.star-map__svg {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+}
+
+.star-map__star-group {
+  cursor: pointer;
+}
+
+.star-map__star-group:hover circle[fill="var(--gold-light)"] {
+  filter: url(#star-glow) brightness(1.4);
+}
+
+.star-map__label {
+  font-family: var(--font-display);
+  font-size: 5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  fill: var(--text-medium);
+  transition: fill 0.3s;
+}
+
+.star-map__star-group:hover .star-map__label {
+  fill: var(--gold-light);
+}
+
+@media (max-width: 768px) {
+  .star-map {
+    min-height: 180px;
+    padding: 1rem 0;
+  }
+
+  .star-map__svg {
+    max-height: 220px;
+  }
+
+  .star-map__label {
+    font-size: 4.5px;
+  }
+}

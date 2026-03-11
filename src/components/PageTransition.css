@@ -1,0 +1,76 @@
+.page-transition {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dark-surface);
+  will-change: transform;
+}
+
+/* Dark overlay on the page being revealed underneath */
+.page-turn__reveal-shadow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 200;
+}
+
+/* Darkening gradient as the page flips */
+.page-turn__darken {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 25%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.2) 75%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 200;
+}
+
+/* The fold crease / highlight line that moves across */
+.page-turn__fold {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 15%,
+    rgba(255, 255, 255, 0.04) 35%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.04) 65%,
+    rgba(0, 0, 0, 0.08) 85%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 201;
+}
+
+/* Spine shadow near the binding edge */
+.page-turn__spine-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.2) 30%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 200;
+}

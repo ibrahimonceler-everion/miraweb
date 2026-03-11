@@ -1,0 +1,52 @@
+.night-toggle {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-border);
+  background: var(--dark-card);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, transform 0.2s;
+  color: var(--text-light);
+}
+
+.night-toggle:hover {
+  border-color: var(--gold);
+  background: var(--dark-card-hover);
+  transform: scale(1.1);
+}
+
+.night-toggle:active {
+  transform: scale(0.9);
+}
+
+.night-toggle--active {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.night-toggle__icon {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 768px) {
+  .night-toggle {
+    bottom: 8px;
+    left: 8px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .night-toggle__icon {
+    width: 14px;
+    height: 14px;
+  }
+}

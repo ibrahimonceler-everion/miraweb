@@ -1,0 +1,16 @@
+export const quotes = [
+  { text: 'Kelimeler sanki kendiliğinden akıyordu parmaklarımdan...', pageIndex: 1 },
+  { text: 'Her düşen yaprak bir kelime taşır rüzgarın sırtında.', pageIndex: 3 },
+  { text: 'Sessizlik en yüksek sesle konuşandır bazen.', pageIndex: 3 },
+  { text: 'Geceyi yazmak, karanlığa ışık serpmektir.', pageIndex: 1 },
+  { text: 'Kitaplar açılmayı bekleyen kapılardır.', pageIndex: 2 },
+  { text: 'Her satırda bir parça ruh gizli.', pageIndex: 0 },
+  { text: 'Mürekkep kurumaz, kelimeler yaşlanmaz.', pageIndex: 1 },
+  { text: 'Yağmurun her damlası bir hikaye anlatır.', pageIndex: 3 },
+  { text: 'Zamansız mektuplar hep kalpten yazılır.', pageIndex: 2 },
+  { text: 'Edebiyat bir sığınak, bir nefes, bir varoluş.', pageIndex: 0 },
+  { text: 'Kaybolan harflerin izinde bir dünya gizli.', pageIndex: 2 },
+  { text: 'Ay ışığında gölgeler bile dans eder.', pageIndex: 2 },
+  { text: 'Bir kahve, bir kalem, bir sonsuzluk.', pageIndex: 3 },
+  { text: 'Düşünceler kağıda döküldüğünde zaman durur.', pageIndex: 3 },
+]

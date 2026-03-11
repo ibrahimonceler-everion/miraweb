@@ -1,0 +1,141 @@
+.magazine-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.magazine {
+  position: relative;
+  width: 100%;
+  max-width: var(--magazine-max-width);
+  height: calc(100vh - 3rem);
+  max-height: 1200px;
+  background: var(--dark-surface);
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 1px var(--gold-accent-06),
+    0 0 60px var(--shadow-soft),
+    0 30px 100px var(--shadow-hard),
+    inset 0 0 100px var(--rose-accent-02);
+  overflow: hidden;
+}
+
+/* Paper texture - subtle on dark */
+.magazine__texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+/* Spine effect */
+.magazine__spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0.12) 40%,
+    transparent 100%
+  );
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* Decorative edges - gold accent */
+.magazine__edge {
+  position: absolute;
+  z-index: 50;
+  pointer-events: none;
+}
+.magazine__edge--top,
+.magazine__edge--bottom {
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-accent-15), var(--gold-accent-30), var(--gold-accent-15), transparent);
+}
+.magazine__edge--top { top: 12px; }
+.magazine__edge--bottom { bottom: 12px; }
+.magazine__edge--left,
+.magazine__edge--right {
+  top: 20px;
+  bottom: 20px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gold-accent-15), var(--gold-accent-30), var(--gold-accent-15), transparent);
+}
+.magazine__edge--left { left: 12px; }
+.magazine__edge--right { right: 12px; }
+
+.magazine__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 10;
+  perspective: 2500px;
+}
+
+@media (max-width: 768px) {
+  .magazine-wrapper {
+    padding: 0.5rem;
+  }
+
+  .magazine {
+    height: calc(100vh - 1rem);
+    border-radius: 0;
+  }
+
+  .magazine__content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .magazine__edge--top,
+  .magazine__edge--bottom,
+  .magazine__edge--left,
+  .magazine__edge--right {
+    display: none;
+  }
+
+  .magazine::before,
+  .magazine::after {
+    display: none;
+  }
+}
+
+/* Corner ornaments - gold */
+.magazine::before,
+.magazine::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  z-index: 60;
+  pointer-events: none;
+  border-color: var(--gold-accent-30);
+  border-style: solid;
+}
+.magazine::before {
+  top: 16px;
+  left: 16px;
+  border-width: 1px 0 0 1px;
+}
+.magazine::after {
+  top: 16px;
+  right: 16px;
+  border-width: 1px 1px 0 0;
+}
