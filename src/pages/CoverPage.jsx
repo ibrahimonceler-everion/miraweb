@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import TypewriterText from '../components/TypewriterText'
 import ParallaxLayer from '../components/ParallaxLayer'
 import StarMap from '../components/StarMap'
-import logoImg from '../assets/image.png'
+import PageLogo from '../components/PageLogo'
 import authorImg from '../assets/author.jpeg'
 import './CoverPage.css'
 
@@ -21,7 +21,9 @@ export default function CoverPage({ onNavigate }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <img src={logoImg} alt="Mira Logo" className="cover__logo" />
+          <div className="cover__logo">
+            <PageLogo />
+          </div>
           <h1 className="cover__title">{'Mira \u00c7enge'}</h1>
           <div className="cover__title-line" />
         </motion.div>

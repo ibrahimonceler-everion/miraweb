@@ -26,6 +26,18 @@ const diamonds = [
   { x: 85, y: 70, size: 0.8, delay: 0.2, dur: 2.4 },
 ]
 
+/* Generate a 5-point star polygon string centered at (cx, cy) */
+function starPoints(cx, cy, outerR, innerR) {
+  const pts = []
+  for (let i = 0; i < 5; i++) {
+    const outerAngle = -Math.PI / 2 + (2 * Math.PI * i) / 5
+    const innerAngle = outerAngle + Math.PI / 5
+    pts.push(`${cx + outerR * Math.cos(outerAngle)},${cy + outerR * Math.sin(outerAngle)}`)
+    pts.push(`${cx + innerR * Math.cos(innerAngle)},${cy + innerR * Math.sin(innerAngle)}`)
+  }
+  return pts.join(' ')
+}
+
 export default function StarMap({ onNavigate }) {
   const dust = useMemo(() =>
     Array.from({ length: 25 }, (_, i) => ({
@@ -128,7 +140,7 @@ export default function StarMap({ onNavigate }) {
           />
         ))}
 
-        {/* Stars */}
+        {/* Stars — 5-point star shapes */}
         {stars.map((star, i) => (
           <g
             key={star.id}
@@ -138,28 +150,23 @@ export default function StarMap({ onNavigate }) {
             {/* Larger invisible hit area */}
             <circle cx={star.x} cy={star.y} r="8" fill="transparent" />
 
-            {/* Twinkle ring */}
-            <motion.circle
-              cx={star.x}
-              cy={star.y}
-              r="4"
+            {/* Twinkle glow ring */}
+            <motion.polygon
+              points={starPoints(star.x, star.y, 5.5, 2.5)}
               fill="none"
               stroke="var(--gold-dim)"
-              strokeWidth="0.2"
-              animate={{ r: [4, 6.5, 4], opacity: [0.25, 0, 0.25] }}
+              strokeWidth="0.15"
+              animate={{ opacity: [0.25, 0, 0.25] }}
               transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.8 }}
             />
 
-            {/* Main star — sparkle animation */}
-            <motion.circle
-              cx={star.x}
-              cy={star.y}
-              r="2"
+            {/* Main star shape — sparkle animation */}
+            <motion.polygon
+              points={starPoints(star.x, star.y, 3.2, 1.4)}
               fill="var(--gold-light)"
               filter="url(#star-glow)"
-              initial={{ scale: 0, opacity: 0 }}
+              initial={{ opacity: 0 }}
               animate={{
-                scale: [1, 1.4, 1],
                 opacity: [0.7, 1, 0.7],
               }}
               transition={{
@@ -170,11 +177,9 @@ export default function StarMap({ onNavigate }) {
               }}
             />
 
-            {/* Inner bright point — twinkle */}
-            <motion.circle
-              cx={star.x}
-              cy={star.y}
-              r="0.6"
+            {/* Inner bright core */}
+            <motion.polygon
+              points={starPoints(star.x, star.y, 1.2, 0.5)}
               fill="#fff"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{

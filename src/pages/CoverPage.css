@@ -35,13 +35,18 @@
 }
 
 .cover__logo {
-  height: 240px;
-  width: auto;
-  object-fit: contain;
   flex-shrink: 0;
-  filter: drop-shadow(0 0 25px var(--rose-accent-30));
   margin-bottom: -2.8rem;
   margin-top: -1rem;
+}
+
+.cover__logo .page-logo {
+  width: 280px;
+  height: 240px;
+}
+
+.cover__logo .page-logo__img {
+  height: 240px;
 }
 
 .cover__title {
@@ -304,8 +309,16 @@
   }
 
   .cover__logo {
-    height: 140px;
-    margin-bottom: -2rem;
+    margin-bottom: -1.5rem;
+  }
+
+  .cover__logo .page-logo {
+    width: 240px;
+    height: 200px;
+  }
+
+  .cover__logo .page-logo__img {
+    height: 200px;
   }
 
   .cover__title {
@@ -363,8 +376,13 @@
     font-size: 1.4rem;
   }
 
-  .cover__logo {
-    height: 120px;
+  .cover__logo .page-logo {
+    width: 220px;
+    height: 180px;
+  }
+
+  .cover__logo .page-logo__img {
+    height: 180px;
   }
 
   .cover__left {
