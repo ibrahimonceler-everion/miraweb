@@ -18,9 +18,7 @@ const Magazine = forwardRef(function Magazine({ children, sound }, ref) {
         {sound && (
           <SoundToggle
             enabled={sound.enabled}
-            ambientPlaying={sound.ambientPlaying}
             onToggle={sound.toggle}
-            onToggleAmbient={sound.toggleAmbient}
           />
         )}
       </div>

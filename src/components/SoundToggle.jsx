@@ -1,6 +1,6 @@
 import './SoundToggle.css'
 
-export default function SoundToggle({ enabled, ambientPlaying, onToggle, onToggleAmbient }) {
+export default function SoundToggle({ enabled, onToggle }) {
   return (
     <div className="sound-toggle">
       <button
@@ -25,19 +25,6 @@ export default function SoundToggle({ enabled, ambientPlaying, onToggle, onToggl
           )}
         </svg>
       </button>
-      {enabled && (
-        <button
-          className={`sound-toggle__ambient ${ambientPlaying ? 'sound-toggle__ambient--active' : ''}`}
-          onClick={onToggleAmbient}
-          title={ambientPlaying ? 'Doğa sesini durdur' : 'Doğa sesi'}
-        >
-          <svg viewBox="0 0 16 16" className="sound-toggle__ambient-icon">
-            <path d="M4 11c0-2 2-3.5 4-5 2 1.5 4 3 4 5a4 4 0 01-8 0z" fill="none" stroke="currentColor" strokeWidth="1" />
-            <path d="M2.5 6.5c1-.8 2.2-.5 2.8.3.6-.8 1.8-1.1 2.8-.3" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" />
-            <circle cx="5.3" cy="5.2" r="0.5" fill="currentColor" />
-          </svg>
-        </button>
-      )}
     </div>
   )
 }
