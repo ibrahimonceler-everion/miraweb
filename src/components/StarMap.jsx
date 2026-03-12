@@ -26,18 +26,6 @@ const diamonds = [
   { x: 85, y: 70, size: 0.8, delay: 0.2, dur: 2.4 },
 ]
 
-/* Generate a 5-point star polygon string centered at (cx, cy) */
-function starPoints(cx, cy, outerR, innerR) {
-  const pts = []
-  for (let i = 0; i < 5; i++) {
-    const outerAngle = -Math.PI / 2 + (2 * Math.PI * i) / 5
-    const innerAngle = outerAngle + Math.PI / 5
-    pts.push(`${cx + outerR * Math.cos(outerAngle)},${cy + outerR * Math.sin(outerAngle)}`)
-    pts.push(`${cx + innerR * Math.cos(innerAngle)},${cy + innerR * Math.sin(innerAngle)}`)
-  }
-  return pts.join(' ')
-}
-
 export default function StarMap({ onNavigate }) {
   const dust = useMemo(() =>
     Array.from({ length: 25 }, (_, i) => ({
@@ -140,75 +128,98 @@ export default function StarMap({ onNavigate }) {
           />
         ))}
 
-        {/* Stars — 5-point star shapes */}
-        {stars.map((star, i) => (
-          <g
-            key={star.id}
-            className="star-map__star-group"
-            onClick={(e) => onNavigate(star.page, e)}
-          >
-            {/* Larger invisible hit area */}
-            <circle cx={star.x} cy={star.y} r="8" fill="transparent" />
-
-            {/* Twinkle glow ring */}
-            <motion.polygon
-              points={starPoints(star.x, star.y, 5.5, 2.5)}
-              fill="none"
-              stroke="var(--gold-dim)"
-              strokeWidth="0.15"
-              animate={{ opacity: [0.25, 0, 0.25] }}
-              transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.8 }}
-            />
-
-            {/* Main star shape — sparkle animation */}
-            <motion.polygon
-              points={starPoints(star.x, star.y, 3.2, 1.4)}
-              fill="var(--gold-light)"
-              filter="url(#star-glow)"
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: [0.7, 1, 0.7],
-              }}
-              transition={{
-                delay: 0.6 + i * 0.2,
-                duration: 2.5 + i * 0.3,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            />
-
-            {/* Inner bright core */}
-            <motion.polygon
-              points={starPoints(star.x, star.y, 1.2, 0.5)}
-              fill="#fff"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{
-                duration: 1.8 + i * 0.4,
-                repeat: Infinity,
-                delay: i * 0.6,
-                ease: 'easeInOut',
-              }}
-            />
-
-            {/* Label — subtle glow pulse */}
-            <motion.text
-              x={star.x}
-              y={star.y + 8}
-              textAnchor="middle"
-              className="star-map__label"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0.6, 1, 0.6] }}
-              transition={{
-                delay: 1.2 + i * 0.2,
-                duration: 3 + i * 0.5,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
+        {/* Stars — 4-ray diamond sparkle shapes (like logo crown sparkles) */}
+        {stars.map((star, i) => {
+          const s = 3.5 // sparkle size
+          const x = star.x
+          const y = star.y
+          return (
+            <g
+              key={star.id}
+              className="star-map__star-group"
+              onClick={(e) => onNavigate(star.page, e)}
             >
-              {star.label}
-            </motion.text>
-          </g>
-        ))}
+              {/* Larger invisible hit area */}
+              <circle cx={x} cy={y} r="8" fill="transparent" />
+
+              {/* Outer glow sparkle — faint ring */}
+              <motion.g
+                animate={{ opacity: [0.2, 0, 0.2] }}
+                transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.8 }}
+              >
+                <polygon
+                  points={`${x},${y - s * 2.2} ${x + s * 0.35},${y} ${x},${y + s * 2.2} ${x - s * 0.35},${y}`}
+                  fill="none" stroke="var(--gold-dim)" strokeWidth="0.15"
+                />
+                <polygon
+                  points={`${x - s * 2.2},${y} ${x},${y - s * 0.35} ${x + s * 2.2},${y} ${x},${y + s * 0.35}`}
+                  fill="none" stroke="var(--gold-dim)" strokeWidth="0.15"
+                />
+              </motion.g>
+
+              {/* Main sparkle — vertical ray */}
+              <motion.polygon
+                points={`${x},${y - s * 1.6} ${x + s * 0.4},${y} ${x},${y + s * 1.6} ${x - s * 0.4},${y}`}
+                fill="var(--gold-light)"
+                filter="url(#star-glow)"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{
+                  delay: 0.6 + i * 0.2,
+                  duration: 2.5 + i * 0.3,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+              {/* Main sparkle — horizontal ray */}
+              <motion.polygon
+                points={`${x - s * 1.6},${y} ${x},${y - s * 0.4} ${x + s * 1.6},${y} ${x},${y + s * 0.4}`}
+                fill="var(--gold-light)"
+                filter="url(#star-glow)"
+                opacity="0.85"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0.6, 0.85, 0.6] }}
+                transition={{
+                  delay: 0.6 + i * 0.2,
+                  duration: 2.5 + i * 0.3,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+
+              {/* Center bright core */}
+              <motion.circle
+                cx={x} cy={y} r={s * 0.4}
+                fill="#fff"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{
+                  duration: 1.8 + i * 0.4,
+                  repeat: Infinity,
+                  delay: i * 0.6,
+                  ease: 'easeInOut',
+                }}
+              />
+
+              {/* Label — subtle glow pulse */}
+              <motion.text
+                x={x}
+                y={y + 8}
+                textAnchor="middle"
+                className="star-map__label"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{
+                  delay: 1.2 + i * 0.2,
+                  duration: 3 + i * 0.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              >
+                {star.label}
+              </motion.text>
+            </g>
+          )
+        })}
       </svg>
     </div>
   )
