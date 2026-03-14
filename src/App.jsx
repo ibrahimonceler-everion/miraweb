@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { ThemeProvider } from './context/ThemeContext'
+import { LanguageProvider } from './context/LanguageContext'
 import Background from './components/Background'
 import Magazine from './components/Magazine'
 import CoverPage from './pages/CoverPage'
@@ -74,8 +75,9 @@ function App() {
 
   return (
     <ThemeProvider>
+    <LanguageProvider>
     <Background onNavigate={navigateTo}>
-      <Magazine sound={sound} ref={magazineRef}>
+      <Magazine ref={magazineRef}>
         <AnimatePresence mode="wait" custom={direction}>
           <InkTransition
             key={pages[currentPage].id}
@@ -92,6 +94,7 @@ function App() {
       </Magazine>
     </Background>
     <CursorEffects />
+    </LanguageProvider>
     </ThemeProvider>
   )
 }

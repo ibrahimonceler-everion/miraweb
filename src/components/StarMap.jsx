@@ -1,14 +1,18 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { t } from '../data/translations'
 import './StarMap.css'
 
-const stars = [
-  { id: 1, label: 'Yazılar', x: 25, y: 22, page: 1 },
-  { id: 2, label: 'Şiirler', x: 75, y: 18, page: 2 },
-  { id: 3, label: 'Düşünceler', x: 50, y: 72, page: 3 },
+const getStars = (lang) => [
+  { id: 1, label: t(lang, 'starMap.writings'), x: 25, y: 22, page: 1 },
+  { id: 2, label: t(lang, 'starMap.poetry'), x: 75, y: 18, page: 2 },
+  { id: 3, label: t(lang, 'starMap.thoughts'), x: 50, y: 72, page: 3 },
 ]
 
 const connections = [[0, 1], [1, 2], [2, 0]]
+
+/* Comet (language toggle) position — bottom right, outside the triangle */
+const comet = { x: 88, y: 90 }
 
 /* Diamond sparkles scattered around the constellation triangle */
 const diamonds = [
@@ -26,7 +30,9 @@ const diamonds = [
   { x: 85, y: 70, size: 0.8, delay: 0.2, dur: 2.4 },
 ]
 
-export default function StarMap({ onNavigate }) {
+export default function StarMap({ onNavigate, lang = 'tr', onToggleLang }) {
+  const stars = useMemo(() => getStars(lang), [lang])
+  const cometLabel = lang === 'tr' ? 'ENGLISH' : 'TÜRKÇE'
   const dust = useMemo(() =>
     Array.from({ length: 25 }, (_, i) => ({
       id: i,
@@ -220,6 +226,77 @@ export default function StarMap({ onNavigate }) {
             </g>
           )
         })}
+        {/* Comet — language toggle star with tail */}
+        {onToggleLang && (
+          <g className="star-map__star-group star-map__comet" onClick={(e) => { e.stopPropagation(); onToggleLang() }}>
+            <circle cx={comet.x} cy={comet.y} r="10" fill="transparent" />
+
+            {/* Comet tail — curves away to the upper-left */}
+            <defs>
+              <linearGradient id="comet-tail" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="var(--rose-primary)" stopOpacity="0" />
+                <stop offset="50%" stopColor="var(--rose-primary)" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="var(--rose-primary)" stopOpacity="0.4" />
+              </linearGradient>
+            </defs>
+            <motion.path
+              d={`M${comet.x - 28},${comet.y - 18} Q${comet.x - 12},${comet.y - 8} ${comet.x},${comet.y}`}
+              stroke="url(#comet-tail)"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+              fill="none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.3, 0.7, 0.3] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            {/* Secondary thin tail */}
+            <motion.path
+              d={`M${comet.x - 22},${comet.y - 22} Q${comet.x - 10},${comet.y - 10} ${comet.x},${comet.y}`}
+              stroke="var(--rose-primary)"
+              strokeWidth="0.4"
+              strokeLinecap="round"
+              fill="none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.1, 0.35, 0.1] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+            />
+
+            {/* Comet sparkle body — smaller than nav stars */}
+            <motion.polygon
+              points={`${comet.x},${comet.y - 4} ${comet.x + 1},${comet.y} ${comet.x},${comet.y + 4} ${comet.x - 1},${comet.y}`}
+              fill="var(--rose-primary)"
+              filter="url(#star-glow)"
+              animate={{ opacity: [0.6, 1, 0.6] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.polygon
+              points={`${comet.x - 4},${comet.y} ${comet.x},${comet.y - 1} ${comet.x + 4},${comet.y} ${comet.x},${comet.y + 1}`}
+              fill="var(--rose-primary)"
+              filter="url(#star-glow)"
+              animate={{ opacity: [0.5, 0.85, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.circle
+              cx={comet.x} cy={comet.y} r="0.8"
+              fill="#fff"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            />
+
+            {/* Label */}
+            <motion.text
+              x={comet.x}
+              y={comet.y + 7}
+              textAnchor="middle"
+              className="star-map__label star-map__comet-label"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.5, 0.9, 0.5] }}
+              transition={{ delay: 1.5, duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              {cometLabel}
+            </motion.text>
+          </g>
+        )}
       </svg>
     </div>
   )

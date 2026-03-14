@@ -31,7 +31,7 @@
   *,
   *::before,
   *::after {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%23C9A96E' stroke-width='0.8'%3E%3Cpath d='M26 2C18 6 12 14 8 22L6 28L8 26C10 24 12 20 14 16' fill='%23C9A96E' fill-opacity='0.15'/%3E%3Cpath d='M26 2C22 4 18 8 14 14' stroke-opacity='0.6'/%3E%3Cpath d='M14 16L8 22' stroke-width='1.2'/%3E%3Cpath d='M6 28L7 24L9 26Z' fill='%23C9A96E' fill-opacity='0.8'/%3E%3Cpath d='M24 4C20 8 16 14 14 16' stroke-opacity='0.3'/%3E%3C/g%3E%3C/svg%3E") 4 28, auto;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%23E8A0B4' stroke-width='0.8'%3E%3Cpath d='M26 2C18 6 12 14 8 22L6 28L8 26C10 24 12 20 14 16' fill='%23E8A0B4' fill-opacity='0.15'/%3E%3Cpath d='M26 2C22 4 18 8 14 14' stroke-opacity='0.6'/%3E%3Cpath d='M14 16L8 22' stroke-width='1.2'/%3E%3Cpath d='M6 28L7 24L9 26Z' fill='%23E8A0B4' fill-opacity='0.8'/%3E%3Cpath d='M24 4C20 8 16 14 14 16' stroke-opacity='0.3'/%3E%3C/g%3E%3C/svg%3E") 4 28, auto;
   }
 
   a, button, .card, .theme-toggle, .sound-toggle, .night-toggle,

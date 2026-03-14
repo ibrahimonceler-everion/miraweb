@@ -3,6 +3,8 @@ import TypewriterText from '../components/TypewriterText'
 import ParallaxLayer from '../components/ParallaxLayer'
 import StarMap from '../components/StarMap'
 import PageLogo from '../components/PageLogo'
+import { useLang } from '../context/LanguageContext'
+import { t } from '../data/translations'
 import authorImg from '../assets/author.jpeg'
 import './CoverPage.css'
 
@@ -12,6 +14,8 @@ const fadeUp = {
 }
 
 export default function CoverPage({ onNavigate }) {
+  const { lang, toggleLang } = useLang()
+
   return (
     <div className="cover">
       <ParallaxLayer depth={0.8} className="cover__header-parallax">
@@ -24,7 +28,7 @@ export default function CoverPage({ onNavigate }) {
           <div className="cover__logo">
             <PageLogo />
           </div>
-          <h1 className="cover__title">{'Mira \u00c7enge'}</h1>
+          <h1 className="cover__title">{t(lang, 'cover.title')}</h1>
           <div className="cover__title-line" />
         </motion.div>
       </header>
@@ -37,7 +41,8 @@ export default function CoverPage({ onNavigate }) {
       >
         <span className="cover__motto-deco">&laquo;</span>
         <TypewriterText
-          text={'S\u00f6zc\u00fcklerin kalbinde ipeksi bir sakinlik \u2026'}
+          key={lang}
+          text={t(lang, 'cover.motto')}
           speed={40}
           delay={800}
           tag="p"
@@ -72,15 +77,15 @@ export default function CoverPage({ onNavigate }) {
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <p className="cover__bio-dropcap">
-            {'Mira \u00c7enge i\u00e7in edebiyat ruhun \u00f6zg\u00fcrce hayallerle bulu\u015ftu\u011fu bir s\u0131\u011f\u0131nakt\u0131r. Sanat\u0131n estetik bak\u0131\u015f a\u00e7\u0131s\u0131 ve zarafetin b\u00fcy\u00fcs\u00fc edebiyatla ta\u00e7lan\u0131r. Edebiyat bizi anlam\u0131 bir hayata davet eder. Sar\u0131ld\u0131\u011f\u0131m\u0131z kelimeler, m\u0131sralar, c\u00fcmleler bir pencere olur. Her s\u00f6z bir nefes gibi solu\u011fumuzda, derinlik ve mana sunar.'}
+            {t(lang, 'cover.bio')}
           </p>
           <p className="cover__bio-text">
-            {'\u00c7a\u011flar\u0131 a\u015fan bu soluk Mira \u00c7enge\u2019nin edebiyat resitalini olu\u015fturur.'}
+            {t(lang, 'cover.bioSecond')}
           </p>
         </motion.div>
 
         <div className="cover__right">
-          <StarMap onNavigate={onNavigate} />
+          <StarMap onNavigate={onNavigate} lang={lang} onToggleLang={toggleLang} />
         </div>
       </div>
       </ParallaxLayer>

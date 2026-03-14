@@ -213,10 +213,12 @@
 
 .cover__bio-dropcap::first-letter {
   font-family: var(--font-title);
-  font-size: 2rem;
+  font-size: 3.2rem;
   float: left;
   line-height: 0.85;
-  padding-right: 0.3rem;
+  padding-right: 0.25rem;
+  margin-top: 0.18rem;
+  margin-bottom: -0.1rem;
   color: var(--gold);
   font-weight: 700;
 }

@@ -1,8 +1,7 @@
 import { forwardRef } from 'react'
-import SoundToggle from './SoundToggle'
 import './Magazine.css'
 
-const Magazine = forwardRef(function Magazine({ children, sound }, ref) {
+const Magazine = forwardRef(function Magazine({ children }, ref) {
   return (
     <div className="magazine-wrapper">
       <div className="magazine" ref={ref}>
@@ -15,12 +14,6 @@ const Magazine = forwardRef(function Magazine({ children, sound }, ref) {
           {children}
         </div>
         <div className="magazine__texture" />
-        {sound && (
-          <SoundToggle
-            enabled={sound.enabled}
-            onToggle={sound.toggle}
-          />
-        )}
       </div>
     </div>
   )

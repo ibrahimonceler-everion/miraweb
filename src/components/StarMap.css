@@ -34,6 +34,18 @@
   fill: var(--gold-light);
 }
 
+.star-map__comet-label {
+  fill: var(--rose-primary);
+  font-size: 4.5px;
+  letter-spacing: 0.12em;
+  text-transform: none !important;
+  font-weight: 400;
+}
+
+.star-map__comet:hover .star-map__comet-label {
+  fill: #fff;
+}
+
 @media (max-width: 768px) {
   .star-map {
     min-height: 180px;
