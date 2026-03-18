@@ -22,13 +22,30 @@ const pages = [
   { id: 'gizli', component: GizliPage },
 ]
 
+function getInitialPage() {
+  const path = window.location.pathname.replace(/^\//, '')
+  if (!path) return 0
+  const idx = pages.findIndex(p => p.id === path)
+  return idx >= 0 ? idx : 0
+}
+
 function App() {
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(getInitialPage)
   const [direction, setDirection] = useState(1)
   const [clickOrigin, setClickOrigin] = useState(null)
   const magazineRef = useRef(null)
   const sound = useAmbientSound()
   const konami = useKonamiCode()
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname.replace(/^\//, '')
+      const idx = pages.findIndex(p => p.id === path)
+      setCurrentPage(idx >= 0 ? idx : 0)
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
 
   useEffect(() => {
     if (konami.triggered) {
@@ -54,6 +71,8 @@ function App() {
     }
     setDirection(pageIndex > currentPage ? 1 : -1)
     setCurrentPage(pageIndex)
+    const slug = pages[pageIndex].id === 'cover' ? '/' : `/${pages[pageIndex].id}`
+    window.history.pushState(null, '', slug)
   }, [currentPage, sound])
 
   const goBack = useCallback((event) => {
@@ -69,6 +88,7 @@ function App() {
     }
     setDirection(-1)
     setCurrentPage(0)
+    window.history.pushState(null, '', '/')
   }, [sound])
 
   const CurrentPageComponent = pages[currentPage].component

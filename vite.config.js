@@ -13,8 +13,8 @@ export default defineConfig({
         name: 'Mira Çenge | Yazar',
         short_name: 'Mira Çenge',
         description: 'Mira Çenge - Edebiyat, şiir ve düşünceler. Sözcüklerin kalbinde ipeksi bir sakinlik.',
-        theme_color: '#1a1a2e',
-        background_color: '#1a1a2e',
+        theme_color: '#FDF5F7',
+        background_color: '#F8E4EC',
         display: 'standalone',
         orientation: 'portrait',
         scope: '/',
@@ -40,6 +40,9 @@ export default defineConfig({
         ],
       },
       workbox: {
+        cleanupOutdatedCaches: true,
+        skipWaiting: true,
+        clientsClaim: true,
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff,woff2}'],
         runtimeCaching: [
           {
