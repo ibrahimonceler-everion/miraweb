@@ -2,34 +2,34 @@
 
 :root {
   /* Rose accents - matched to logo pink */
-  --rose-deep: #D4849A;
+  --rose-deep: #D4708A;
   --rose-primary: #E8A0B4;
   --rose-medium: #D6909F;
-  --rose-light: rgba(232, 160, 180, 0.35);
-  --rose-blush: rgba(232, 160, 180, 0.12);
-  --rose-pale: rgba(232, 160, 180, 0.06);
-  --rose-glow: rgba(212, 132, 154, 0.15);
+  --rose-light: rgba(232, 160, 180, 0.25);
+  --rose-blush: rgba(232, 160, 180, 0.1);
+  --rose-pale: rgba(232, 160, 180, 0.05);
+  --rose-glow: rgba(212, 132, 154, 0.1);
 
-  /* Dark luxe base */
-  --dark-base: #0F0A0C;
-  --dark-surface: #1A1215;
-  --dark-card: rgba(255, 240, 230, 0.04);
-  --dark-card-hover: rgba(255, 240, 230, 0.07);
-  --dark-elevated: #2A2023;
-  --dark-border: rgba(201, 169, 110, 0.15);
-  --dark-border-hover: rgba(201, 169, 110, 0.3);
+  /* Pastel pink base */
+  --dark-base: #F8E4EC;
+  --dark-surface: #FBEDF2;
+  --dark-card: rgba(232, 160, 180, 0.10);
+  --dark-card-hover: rgba(232, 160, 180, 0.16);
+  --dark-elevated: #F2D8E2;
+  --dark-border: rgba(212, 132, 154, 0.2);
+  --dark-border-hover: rgba(212, 132, 154, 0.35);
 
-  /* Cream & Gold */
-  --cream: #1A1215;
-  --cream-text: #F5E6D8;
-  --gold: #C9A96E;
-  --gold-light: #D4B87A;
-  --gold-dim: rgba(201, 169, 110, 0.2);
+  /* Cream & Pink */
+  --cream: #FFF8FA;
+  --cream-text: #3A1525;
+  --gold: #C07088;
+  --gold-light: #D4849A;
+  --gold-dim: rgba(192, 112, 136, 0.2);
 
-  /* Text on dark */
-  --text-dark: #EDD8C8;
-  --text-medium: #B89A88;
-  --text-light: #7A6358;
+  /* Text */
+  --text-dark: #3A1525;
+  --text-medium: #7A4558;
+  --text-light: #B88898;
 
   /* Typography */
   --font-display: 'Cinzel', serif;
@@ -39,136 +39,6 @@
   --font-elegant: 'Italiana', serif;
 
   /* Accent utilities */
-  --gold-accent-06: rgba(201, 169, 110, 0.06);
-  --gold-accent-15: rgba(201, 169, 110, 0.15);
-  --gold-accent-20: rgba(201, 169, 110, 0.2);
-  --gold-accent-25: rgba(201, 169, 110, 0.25);
-  --gold-accent-30: rgba(201, 169, 110, 0.3);
-  --rose-accent-02: rgba(232, 160, 180, 0.02);
-  --rose-accent-06: rgba(232, 160, 180, 0.06);
-  --rose-accent-10: rgba(232, 160, 180, 0.1);
-  --rose-accent-30: rgba(232, 160, 180, 0.3);
-  --shadow-soft: rgba(0, 0, 0, 0.5);
-  --shadow-hard: rgba(0, 0, 0, 0.7);
-  --vignette-color: rgba(0, 0, 0, 0.4);
-
-  /* Spacing */
-  --magazine-max-width: 900px;
-  --magazine-padding: 2.5rem;
-}
-
-/* ====== Light Theme ====== */
-[data-theme="light"] {
-  --rose-deep: #C4708A;
-  --rose-primary: #D4849A;
-  --rose-medium: #C07888;
-  --rose-light: rgba(196, 112, 138, 0.2);
-  --rose-blush: rgba(196, 112, 138, 0.08);
-  --rose-pale: rgba(196, 112, 138, 0.04);
-  --rose-glow: rgba(180, 100, 130, 0.1);
-
-  --dark-base: #FAF6F2;
-  --dark-surface: #FFFFFF;
-  --dark-card: rgba(180, 140, 120, 0.06);
-  --dark-card-hover: rgba(180, 140, 120, 0.10);
-  --dark-elevated: #F0E8E0;
-  --dark-border: rgba(180, 150, 100, 0.2);
-  --dark-border-hover: rgba(180, 150, 100, 0.4);
-
-  --cream: #FFFFFF;
-  --cream-text: #3A2820;
-  --gold: #A88C55;
-  --gold-light: #BFA060;
-  --gold-dim: rgba(168, 140, 85, 0.2);
-
-  --text-dark: #2C1E18;
-  --text-medium: #6B5548;
-  --text-light: #A08878;
-
-  --gold-accent-06: rgba(168, 140, 85, 0.06);
-  --gold-accent-15: rgba(168, 140, 85, 0.15);
-  --gold-accent-20: rgba(168, 140, 85, 0.2);
-  --gold-accent-25: rgba(168, 140, 85, 0.25);
-  --gold-accent-30: rgba(168, 140, 85, 0.3);
-  --rose-accent-02: rgba(196, 112, 138, 0.03);
-  --rose-accent-06: rgba(196, 112, 138, 0.06);
-  --rose-accent-10: rgba(196, 112, 138, 0.1);
-  --rose-accent-30: rgba(196, 112, 138, 0.2);
-  --shadow-soft: rgba(0, 0, 0, 0.08);
-  --shadow-hard: rgba(0, 0, 0, 0.12);
-  --vignette-color: rgba(100, 80, 60, 0.08);
-}
-
-/* ====== Rose Theme ====== */
-[data-theme="rose"] {
-  --rose-deep: #C07088;
-  --rose-primary: #F5D0DC;
-  --rose-medium: #D090A0;
-  --rose-light: rgba(245, 208, 220, 0.3);
-  --rose-blush: rgba(245, 208, 220, 0.15);
-  --rose-pale: rgba(245, 208, 220, 0.06);
-  --rose-glow: rgba(232, 160, 180, 0.2);
-
-  --dark-base: #C47090;
-  --dark-surface: #D4809A;
-  --dark-card: rgba(255, 255, 255, 0.08);
-  --dark-card-hover: rgba(255, 255, 255, 0.12);
-  --dark-elevated: #D890A4;
-  --dark-border: rgba(255, 255, 255, 0.15);
-  --dark-border-hover: rgba(255, 255, 255, 0.3);
-
-  --cream: #D4809A;
-  --cream-text: #FFF5F0;
-  --gold: #F5D5C0;
-  --gold-light: #FAE0D0;
-  --gold-dim: rgba(245, 213, 192, 0.25);
-
-  --text-dark: #FFF0E8;
-  --text-medium: #F0C8B8;
-  --text-light: #D8A090;
-
-  --gold-accent-06: rgba(245, 213, 192, 0.08);
-  --gold-accent-15: rgba(245, 213, 192, 0.15);
-  --gold-accent-20: rgba(245, 213, 192, 0.2);
-  --gold-accent-25: rgba(245, 213, 192, 0.25);
-  --gold-accent-30: rgba(245, 213, 192, 0.35);
-  --rose-accent-02: rgba(255, 255, 255, 0.03);
-  --rose-accent-06: rgba(255, 255, 255, 0.06);
-  --rose-accent-10: rgba(255, 255, 255, 0.1);
-  --rose-accent-30: rgba(255, 255, 255, 0.2);
-  --shadow-soft: rgba(100, 30, 50, 0.3);
-  --shadow-hard: rgba(100, 30, 50, 0.5);
-  --vignette-color: rgba(100, 30, 50, 0.25);
-}
-
-/* ====== Pastel Pink Theme ====== */
-[data-theme="pastel-pink"] {
-  --rose-deep: #D4708A;
-  --rose-primary: #E8A0B4;
-  --rose-medium: #D6909F;
-  --rose-light: rgba(232, 160, 180, 0.25);
-  --rose-blush: rgba(232, 160, 180, 0.1);
-  --rose-pale: rgba(232, 160, 180, 0.05);
-  --rose-glow: rgba(212, 132, 154, 0.1);
-
-  --dark-base: #F8E4EC;
-  --dark-surface: #FBEDF2;
-  --dark-card: rgba(232, 160, 180, 0.10);
-  --dark-card-hover: rgba(232, 160, 180, 0.16);
-  --dark-elevated: #F2D8E2;
-  --dark-border: rgba(212, 132, 154, 0.2);
-  --dark-border-hover: rgba(212, 132, 154, 0.35);
-
-  --cream: #FFF8FA;
-  --cream-text: #3A1525;
-  --gold: #C07088;
-  --gold-light: #D4849A;
-  --gold-dim: rgba(192, 112, 136, 0.2);
-
-  --text-dark: #3A1525;
-  --text-medium: #7A4558;
-  --text-light: #B88898;
-
   --gold-accent-06: rgba(192, 112, 136, 0.06);
   --gold-accent-15: rgba(192, 112, 136, 0.15);
   --gold-accent-20: rgba(192, 112, 136, 0.2);
@@ -181,48 +51,10 @@
   --shadow-soft: rgba(0, 0, 0, 0.06);
   --shadow-hard: rgba(0, 0, 0, 0.1);
   --vignette-color: rgba(100, 50, 70, 0.06);
-}
 
-/* ====== Dark Rose Theme ====== */
-[data-theme="dark-rose"] {
-  --rose-deep: #E8A0B4;
-  --rose-primary: #F0B8C8;
-  --rose-medium: #D890A4;
-  --rose-light: rgba(240, 184, 200, 0.25);
-  --rose-blush: rgba(240, 184, 200, 0.1);
-  --rose-pale: rgba(240, 184, 200, 0.05);
-  --rose-glow: rgba(232, 160, 180, 0.15);
-
-  --dark-base: #2A0E18;
-  --dark-surface: #3A1525;
-  --dark-card: rgba(255, 200, 220, 0.05);
-  --dark-card-hover: rgba(255, 200, 220, 0.08);
-  --dark-elevated: #4A2035;
-  --dark-border: rgba(240, 184, 200, 0.15);
-  --dark-border-hover: rgba(240, 184, 200, 0.3);
-
-  --cream: #3A1525;
-  --cream-text: #F5D5E0;
-  --gold: #E8A0B4;
-  --gold-light: #F0B8C8;
-  --gold-dim: rgba(232, 160, 180, 0.2);
-
-  --text-dark: #F5D5E0;
-  --text-medium: #C8909A;
-  --text-light: #8A5060;
-
-  --gold-accent-06: rgba(232, 160, 180, 0.06);
-  --gold-accent-15: rgba(232, 160, 180, 0.15);
-  --gold-accent-20: rgba(232, 160, 180, 0.2);
-  --gold-accent-25: rgba(232, 160, 180, 0.25);
-  --gold-accent-30: rgba(232, 160, 180, 0.3);
-  --rose-accent-02: rgba(240, 184, 200, 0.03);
-  --rose-accent-06: rgba(240, 184, 200, 0.06);
-  --rose-accent-10: rgba(240, 184, 200, 0.1);
-  --rose-accent-30: rgba(240, 184, 200, 0.2);
-  --shadow-soft: rgba(0, 0, 0, 0.5);
-  --shadow-hard: rgba(0, 0, 0, 0.7);
-  --vignette-color: rgba(0, 0, 0, 0.4);
+  /* Spacing */
+  --magazine-max-width: 900px;
+  --magazine-padding: 2.5rem;
 }
 
 *, *::before, *::after {
