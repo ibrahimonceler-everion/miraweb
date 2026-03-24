@@ -37,14 +37,61 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
+      "@type": "WebSite",
       "name": "Mira Çenge",
       "url": "https://miracenge.com",
-      "sameAs": ["https://www.instagram.com/mira.edebiyat/"],
-      "jobTitle": "Yazar",
-      "description": "Edebiyat, şiir ve düşünceler"
+      "description": "Mira Çenge - Edebiyat, şiir ve düşünceler. Sözcüklerin kalbinde ipeksi bir sakinlik.",
+      "inLanguage": "tr",
+      "author": {
+        "@type": "Person",
+        "name": "Mira Çenge",
+        "url": "https://miracenge.com",
+        "sameAs": ["https://www.instagram.com/mira.edebiyat/"],
+        "jobTitle": "Yazar",
+        "description": "Türk edebiyatında özgün bir ses. Edebiyat, şiir ve düşünceler üzerine yazan yazar.",
+        "knowsLanguage": ["tr", "en"]
+      }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Mira Çenge Eserleri",
+      "url": "https://miracenge.com",
+      "description": "Mira Çenge'nin yazıları, şiirleri ve düşünceleri",
+      "hasPart": [
+        {
+          "@type": "Article",
+          "name": "Yazılar",
+          "url": "https://miracenge.com/yazilar",
+          "description": "Kalbin mürekkebiyle yazılmış satırlar - yaşam, hürriyet ve hakikat üzerine",
+          "author": { "@type": "Person", "name": "Mira Çenge" },
+          "inLanguage": "tr"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Şiirler",
+          "url": "https://miracenge.com/siirler",
+          "description": "Kelimelerin dansettiği sessiz sahneler - Düş ve Zaman şiirleri",
+          "author": { "@type": "Person", "name": "Mira Çenge" },
+          "genre": "Şiir",
+          "inLanguage": "tr"
+        },
+        {
+          "@type": "Article",
+          "name": "Düşünceler",
+          "url": "https://miracenge.com/serbest",
+          "description": "Zamansız düşünceler, sınırsız kelimeler - özlem, kimlik ve yaşamın anlamı",
+          "author": { "@type": "Person", "name": "Mira Çenge" },
+          "inLanguage": "tr"
+        }
+      ]
+    }
+    </script>
+
+    <!-- LLMs.txt for AI crawlers -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Summary" />
 
     <!-- Fonts are self-hosted via vite-plugin-webfont-dl -->
   </head>
