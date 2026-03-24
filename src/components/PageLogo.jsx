@@ -18,8 +18,8 @@ export default function PageLogo() {
         src={logoImg}
         alt="Mira"
         className="page-logo__img"
-        width={421}
-        height={632}
+        width={210}
+        height={315}
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
