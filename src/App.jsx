@@ -33,6 +33,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(getInitialPage)
   const [direction, setDirection] = useState(1)
   const [clickOrigin, setClickOrigin] = useState(null)
+  const [isAnimating, setIsAnimating] = useState(false)
   const magazineRef = useRef(null)
   const sound = useAmbientSound()
   const konami = useKonamiCode()
@@ -58,7 +59,8 @@ function App() {
   }, [konami.triggered])
 
   const navigateTo = useCallback((pageIndex, event) => {
-    if (pageIndex === currentPage) return
+    if (pageIndex === currentPage || isAnimating) return
+    setIsAnimating(true)
     sound.triggerPageTurn()
     if (event?.clientX) {
       const rect = magazineRef.current?.getBoundingClientRect()
@@ -73,9 +75,11 @@ function App() {
     setCurrentPage(pageIndex)
     const slug = pages[pageIndex].id === 'cover' ? '/' : `/${pages[pageIndex].id}`
     window.history.pushState(null, '', slug)
-  }, [currentPage, sound])
+  }, [currentPage, sound, isAnimating])
 
   const goBack = useCallback((event) => {
+    if (isAnimating) return
+    setIsAnimating(true)
     sound.triggerPageTurn()
     if (event?.clientX) {
       const rect = magazineRef.current?.getBoundingClientRect()
@@ -89,7 +93,7 @@ function App() {
     setDirection(-1)
     setCurrentPage(0)
     window.history.pushState(null, '', '/')
-  }, [sound])
+  }, [sound, isAnimating])
 
   const CurrentPageComponent = pages[currentPage].component
 
@@ -98,7 +102,7 @@ function App() {
     <LanguageProvider>
     <Background onNavigate={navigateTo}>
       <Magazine ref={magazineRef}>
-        <AnimatePresence mode="wait" custom={direction}>
+        <AnimatePresence mode="wait" custom={direction} onExitComplete={() => setIsAnimating(false)}>
           <InkTransition
             key={pages[currentPage].id}
             direction={direction}
