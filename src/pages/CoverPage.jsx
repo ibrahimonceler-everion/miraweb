@@ -5,7 +5,7 @@ import StarMap from '../components/StarMap'
 import PageLogo from '../components/PageLogo'
 import { useLang } from '../context/LanguageContext'
 import { t } from '../data/translations'
-import authorImg from '../assets/author.jpeg'
+import authorImg from '../assets/author.webp'
 import './CoverPage.css'
 
 const fadeUp = {
@@ -66,7 +66,7 @@ export default function CoverPage({ onNavigate }) {
         >
           <div className="cover__photo-frame">
             <div className="cover__photo">
-              <img src={authorImg} alt="Mira" />
+              <img src={authorImg} alt="Mira" width={512} height={701} />
             </div>
           </div>
         </motion.div>

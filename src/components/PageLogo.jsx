@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import logoImg from '../assets/image.png'
+import logoImg from '../assets/image.webp'
 import './PageLogo.css'
 
 const gems = [
@@ -18,6 +18,8 @@ export default function PageLogo() {
         src={logoImg}
         alt="Mira"
         className="page-logo__img"
+        width={421}
+        height={632}
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}

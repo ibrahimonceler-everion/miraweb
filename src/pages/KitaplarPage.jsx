@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import BackButton from '../components/BackButton'
 import PageLogo from '../components/PageLogo'
-import authorImg from '../assets/author3.jpeg'
+import authorImg from '../assets/author3.webp'
 import './InnerPage.css'
 
 const poems = [
@@ -66,7 +66,7 @@ export default function KitaplarPage({ onBack }) {
         transition={{ delay: 0.3, duration: 0.8 }}
       >
         <div className="inner-page__portrait-frame">
-          <img src={authorImg} alt="Mira Çenge" />
+          <img src={authorImg} alt="Mira Çenge" width={512} height={512} />
           <div className="inner-page__portrait-overlay" />
         </div>
       </motion.div>
