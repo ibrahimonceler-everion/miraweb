@@ -48,7 +48,7 @@ export default function OdullerPage({ onBack }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        <span className="oduller-award-badge__year">2025</span>
+        <span className="oduller-award-badge__year">2026</span>
         <span className="oduller-award-badge__name">
           12. Uluslararası Başarı ve Kariyer Ödülleri
         </span>
