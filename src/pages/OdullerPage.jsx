@@ -88,11 +88,9 @@ export default function OdullerPage({ onBack }) {
           <p
             key={i}
             className={
-              i === 0
-                ? 'yazilar-prose__dropcap'
-                : p.length < 40
-                  ? 'yazilar-prose__closing'
-                  : 'yazilar-prose__paragraph'
+              p.length < 40
+                ? 'oduller-speech__accent'
+                : 'oduller-speech__paragraph'
             }
           >
             {p}

@@ -295,6 +295,26 @@
   margin-bottom: 0.5rem;
 }
 
+.oduller-speech__paragraph {
+  font-family: var(--font-accent);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-dark);
+  text-align: justify;
+  margin-bottom: 0.8rem;
+}
+
+.oduller-speech__accent {
+  font-family: var(--font-accent);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
 @media (max-width: 768px) {
   .oduller-gallery {
     gap: 0.5rem;
