@@ -10,6 +10,7 @@ export const translations = {
       writings: 'Yazılar',
       poetry: 'Şiirler',
       thoughts: 'Düşünceler',
+      awards: 'Ödüller',
     },
   },
   en: {
@@ -23,6 +24,7 @@ export const translations = {
       writings: 'Writings',
       poetry: 'Poetry',
       thoughts: 'Reflections',
+      awards: 'Awards',
     },
   },
 }

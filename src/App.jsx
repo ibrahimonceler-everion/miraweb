@@ -8,6 +8,7 @@ import CoverPage from './pages/CoverPage'
 import YazilarPage from './pages/YazilarPage'
 import KitaplarPage from './pages/KitaplarPage'
 import SerbestPage from './pages/SerbestPage'
+import OdullerPage from './pages/OdullerPage'
 import GizliPage from './pages/GizliPage'
 import InkTransition from './components/InkTransition'
 import CursorEffects from './components/CursorEffects'
@@ -19,6 +20,7 @@ const pages = [
   { id: 'yazilar', component: YazilarPage },
   { id: 'siirler', component: KitaplarPage },
   { id: 'serbest', component: SerbestPage },
+  { id: 'oduller', component: OdullerPage },
   { id: 'gizli', component: GizliPage },
 ]
 
@@ -53,7 +55,7 @@ function App() {
       sound.triggerEasterEgg()
       setClickOrigin(null)
       setDirection(1)
-      setCurrentPage(4)
+      setCurrentPage(5)
       konami.reset()
     }
   }, [konami.triggered])

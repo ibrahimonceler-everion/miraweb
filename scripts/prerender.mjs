@@ -16,11 +16,11 @@ const seoContent = {
   '/': `
     <div class="seo-fallback">
       <header>
-        <h1>Mira Çenge | Yazar</h1>
+        <h1>Mira Çenge | Şair ve Yazar</h1>
         <p>Sözcüklerin kalbinde ipeksi bir sakinlik…</p>
       </header>
       <main>
-        <p>Mira Çenge için edebiyat ruhun özgürce hayallerle buluştuğu bir sığınaktır. Sanatın estetik bakış açısı ve zarafetin büyüsü edebiyatla taçlanır. Edebiyat bizi anlamlı bir hayata davet eder. Sarıldığımız kelimeler, mısralar, cümleler bir pencere olur. Her söz bir nefes gibi kalbimizde derinlik ve mana sunar.</p>
+        <p>Mira Çenge, Türk edebiyatında özgün bir ses olan şair ve yazardır. Mira Çenge için edebiyat ruhun özgürce hayallerle buluştuğu bir sığınaktır. Sanatın estetik bakış açısı ve zarafetin büyüsü edebiyatla taçlanır. Edebiyat bizi anlamlı bir hayata davet eder. Sarıldığımız kelimeler, mısralar, cümleler bir pencere olur. Her söz bir nefes gibi kalbimizde derinlik ve mana sunar.</p>
         <p>Çağları aşan bu his Mira Çenge'nin edebiyat resitalini oluşturur.</p>
         <nav>
           <ul>
@@ -39,7 +39,7 @@ const seoContent = {
   '/yazilar': `
     <div class="seo-fallback">
       <header>
-        <h1>Mira Çenge | Yazar</h1>
+        <h1>Mira Çenge | Şair ve Yazar</h1>
         <h2>Yazılar</h2>
         <p>Kalbin mürekkebiyle yazılmış satırlar</p>
       </header>
@@ -63,7 +63,7 @@ const seoContent = {
   '/siirler': `
     <div class="seo-fallback">
       <header>
-        <h1>Mira Çenge | Yazar</h1>
+        <h1>Mira Çenge | Şair ve Yazar</h1>
         <h2>Şiirler</h2>
         <p>Kelimelerin dansettiği sessiz sahneler</p>
       </header>
@@ -85,10 +85,31 @@ const seoContent = {
     </div>
   `,
 
+  '/oduller': `
+    <div class="seo-fallback">
+      <header>
+        <h1>Mira Çenge | Şair ve Yazar</h1>
+        <h2>Ödüller</h2>
+        <p>Kelimelerin onurlandığı anlar</p>
+      </header>
+      <main>
+        <article>
+          <h3>12. Uluslararası Başarı ve Kariyer Ödülleri - Yılın En İyi Çıkış Yapan Kadın Yazar</h3>
+          <p>Ben Mira Çenge… Edebiyat benim için bir tutku… Yaşamı dizelerde ve satırlarda yaşamaya küçük yaşlarda karar verdim. Bu da beni tutkunu olduğum "Türk Dili ve Edebiyatı" alanında eğitim almaya yöneltti. Ve minnettarım ki bu alanda öğretmen olabilme fırsatını buldum.</p>
+          <p>Şimdi ise satırların ve dizelerin büyüsünde can bulan kelimelere sahibim. Amacım edebiyatseverlerle bir şiirin dizesinde, bir kitabın satırında buluşmak…</p>
+          <p>Kelimelerin bir çağın soluğu olduğuna inanan herkes adına bu ödülü büyük bir onur ve zarafetle kabul ediyorum.</p>
+          <p>Ben kelimelerin izini sürmeye devam edeceğim çünkü, bazı hikayeler ancak yolda tamamlanır…</p>
+          <footer><strong>Mira Çenge</strong></footer>
+        </article>
+      </main>
+      <nav><a href="/">Ana Sayfa</a></nav>
+    </div>
+  `,
+
   '/serbest': `
     <div class="seo-fallback">
       <header>
-        <h1>Mira Çenge | Yazar</h1>
+        <h1>Mira Çenge | Şair ve Yazar</h1>
         <h2>Düşünceler</h2>
         <p>Zamansız düşünceler, sınırsız kelimeler</p>
       </header>

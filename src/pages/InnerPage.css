@@ -208,6 +208,104 @@
 }
 
 /* ========================
+   AWARDS (Ödüller page)
+   ======================== */
+.oduller-award-badge {
+  text-align: center;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.oduller-award-badge__year {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.oduller-award-badge__name {
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  font-style: italic;
+}
+
+.oduller-award-badge__category {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--rose-primary);
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+.oduller-gallery {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.oduller-gallery__item {
+  flex: 1;
+  max-width: 160px;
+}
+
+.oduller-gallery__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.12),
+    0 0 0 1px var(--gold-accent-10);
+}
+
+.oduller-gallery__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: contrast(1.05) brightness(0.97) saturate(0.9);
+}
+
+.oduller-gallery__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--dark-base);
+  mix-blend-mode: color;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.oduller-speech-title {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .oduller-gallery {
+    gap: 0.5rem;
+  }
+
+  .oduller-gallery__item {
+    max-width: 120px;
+  }
+}
+
+/* ========================
    POEMS (Şiirler page)
    ======================== */
 .inner-page__poems {

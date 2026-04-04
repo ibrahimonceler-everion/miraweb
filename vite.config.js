@@ -15,9 +15,9 @@ export default defineConfig({
       injectRegister: 'script-defer',
       includeAssets: ['logo.png', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
-        name: 'Mira Çenge | Yazar',
+        name: 'Mira Çenge | Şair ve Yazar',
         short_name: 'Mira Çenge',
-        description: 'Mira Çenge - Edebiyat, şiir ve düşünceler. Sözcüklerin kalbinde ipeksi bir sakinlik.',
+        description: 'Mira Çenge - Şair ve yazar. Edebiyat, şiir ve düşünceler. Sözcüklerin kalbinde ipeksi bir sakinlik.',
         theme_color: '#FDF5F7',
         background_color: '#F8E4EC',
         display: 'standalone',

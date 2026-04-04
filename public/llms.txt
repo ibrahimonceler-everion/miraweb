@@ -1,14 +1,15 @@
-# Mira Çenge - Yazar
+# Mira Çenge - Şair ve Yazar
 
 > Mira Çenge'nin resmi web sitesi. Edebiyat, şiir ve düşünceler.
 
-Mira Çenge, Türk edebiyatında özgün bir ses olarak öne çıkan bir yazardır. Edebiyat, onun için ruhun özgürce hayallerle buluştuğu bir sığınaktır. Sanatın estetik bakış açısı ve zarafetin büyüsü edebiyatla taçlanır.
+Mira Çenge, Türk edebiyatında özgün bir ses olarak öne çıkan şair ve yazardır. Edebiyat, onun için ruhun özgürce hayallerle buluştuğu bir sığınaktır. Sanatın estetik bakış açısı ve zarafetin büyüsü edebiyatla taçlanır.
 
 ## Sayfalar
 
 - [Ana Sayfa](https://miracenge.com/): Mira Çenge'nin kişisel web sitesi, biyografi ve eserlerine genel bakış
 - [Yazılar](https://miracenge.com/yazilar): Mira Çenge'nin edebiyat yazıları - yaşam, hürriyet, hakikat ve anlam üzerine düzyazılar
 - [Şiirler](https://miracenge.com/siirler): Mira Çenge'nin şiirleri - "Düş" ve "Zaman" başlıklı şiirler
+- [Ödüller](https://miracenge.com/oduller): Mira Çenge'nin edebiyat ödülleri - 12. Uluslararası Başarı ve Kariyer Ödülleri, Yılın En İyi Çıkış Yapan Kadın Yazar
 - [Düşünceler](https://miracenge.com/serbest): Zamansız düşünceler ve serbest yazılar - özlem, kimlik ve yaşamın anlamı üzerine
 
 ## Yazar Hakkında
