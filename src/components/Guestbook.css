@@ -1,0 +1,389 @@
+/* ============================================
+   Ink drops layer — kenarlarda biriken patina
+   ============================================ */
+.guestbook-drops {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 55;
+}
+
+.ink-drop {
+  position: absolute;
+  width: var(--ink-size, 18px);
+  height: var(--ink-size, 18px);
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  transition: filter 0.3s ease, transform 0.2s ease;
+  color: var(--ink-color);
+}
+
+.ink-drop--top { transform: translate(-50%, 0); }
+.ink-drop--bottom { transform: translate(-50%, 0); }
+.ink-drop--left { transform: translate(0, -50%); }
+.ink-drop--right { transform: translate(0, -50%); }
+
+.ink-drop:hover {
+  filter: drop-shadow(0 0 6px var(--gold-accent-30));
+  z-index: 56;
+}
+.ink-drop--top:hover { transform: translate(-50%, 2px) scale(1.15); }
+.ink-drop--bottom:hover { transform: translate(-50%, -2px) scale(1.15); }
+.ink-drop--left:hover { transform: translate(2px, -50%) scale(1.15); }
+.ink-drop--right:hover { transform: translate(-2px, -50%) scale(1.15); }
+
+.ink-drop__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* Yaşa göre patina — zamanla solma ve yayılma */
+.ink-drop--fresh .ink-drop__svg { opacity: 0.92; }
+.ink-drop--recent .ink-drop__svg { opacity: 0.75; filter: blur(0.2px); }
+.ink-drop--old .ink-drop__svg { opacity: 0.55; filter: blur(0.5px); }
+.ink-drop--ancient .ink-drop__svg { opacity: 0.38; filter: blur(0.8px); }
+
+/* ============================================
+   Pen button — misafir defterini açar
+   ============================================ */
+.guestbook-pen {
+  position: absolute;
+  bottom: 16px;
+  left: 96px;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-border);
+  background: var(--dark-card);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s, transform 0.2s, color 0.3s;
+  color: var(--text-light);
+  padding: 0;
+}
+
+.guestbook-pen:hover {
+  border-color: var(--gold);
+  background: var(--dark-card-hover);
+  color: var(--gold);
+  transform: scale(1.1) rotate(-8deg);
+}
+
+.guestbook-pen__icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================
+   Card — damla tıklanınca açılan not kartı
+   ============================================ */
+.guestbook-card-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  padding: 1.5rem;
+}
+
+.guestbook-card {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  padding: 1.8rem 1.8rem 1.3rem;
+  background: var(--dark-surface);
+  border: 1px solid var(--gold-accent-30);
+  border-radius: 3px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 40px var(--rose-accent-02);
+  color: var(--text-light);
+}
+
+.guestbook-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-accent-30), transparent);
+}
+
+.guestbook-card__message {
+  margin: 0 0 1rem;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  font-style: italic;
+  color: var(--text-light);
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.guestbook-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--dark-border);
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--text-light) 70%, transparent);
+}
+
+.guestbook-card__author {
+  font-family: var(--font-serif, Georgia, serif);
+  color: var(--gold);
+}
+
+.guestbook-card__date {
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+
+/* ============================================
+   Panel — yazma formu
+   ============================================ */
+.guestbook-panel-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+.guestbook-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(420px, 100%);
+  padding: 2rem 1.8rem 1.6rem;
+  background: var(--dark-surface);
+  border-left: 1px solid var(--gold-accent-30);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+
+.guestbook-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.guestbook-panel__title {
+  margin: 0;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+}
+
+.guestbook-panel__close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-border);
+  background: transparent;
+  color: var(--text-light);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+.guestbook-panel__close:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.guestbook-panel__hint {
+  margin: 0 0 1.4rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: color-mix(in srgb, var(--text-light) 80%, transparent);
+  line-height: 1.5;
+}
+
+.guestbook-panel__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--text-light) 70%, transparent);
+}
+
+.guestbook-panel__label > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.guestbook-panel__label small {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+.guestbook-panel__label input,
+.guestbook-panel__label textarea {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: 2px;
+  color: var(--text-light);
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.5;
+  resize: vertical;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.guestbook-panel__label input:focus,
+.guestbook-panel__label textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--dark-card-hover);
+}
+
+.guestbook-panel__label input:disabled,
+.guestbook-panel__label textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.guestbook-panel__honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.guestbook-panel__error,
+.guestbook-panel__success {
+  margin: 0.2rem 0 0.8rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.82rem;
+  font-style: italic;
+  border-radius: 2px;
+}
+
+.guestbook-panel__error {
+  color: #e8a4a4;
+  background: rgba(180, 60, 60, 0.1);
+  border-left: 2px solid #b44;
+}
+
+.guestbook-panel__success {
+  color: var(--gold);
+  background: var(--gold-accent-06, rgba(200, 160, 90, 0.06));
+  border-left: 2px solid var(--gold);
+}
+
+.guestbook-panel__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 1.2rem;
+}
+
+.guestbook-panel__btn {
+  padding: 0.65rem 1.4rem;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--dark-surface);
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.guestbook-panel__btn:hover:not(:disabled) {
+  background: transparent;
+  color: var(--gold);
+}
+
+.guestbook-panel__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.guestbook-panel__btn--ghost {
+  background: transparent;
+  color: var(--text-light);
+  border-color: var(--dark-border);
+}
+.guestbook-panel__btn--ghost:hover:not(:disabled) {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* ============================================
+   Mobile
+   ============================================ */
+@media (max-width: 768px) {
+  .guestbook-pen {
+    bottom: 8px;
+    left: 80px;
+    width: 28px;
+    height: 28px;
+  }
+  .guestbook-pen__icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .guestbook-panel {
+    width: 100%;
+    padding: 1.5rem 1.2rem 1.2rem;
+  }
+
+  .guestbook-card {
+    padding: 1.4rem 1.3rem 1.1rem;
+  }
+
+  .guestbook-card__message {
+    font-size: 0.98rem;
+  }
+
+  /* Mobilde damlaları biraz küçült, daha sade */
+  .ink-drop {
+    width: calc(var(--ink-size, 18px) * 0.8);
+    height: calc(var(--ink-size, 18px) * 0.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-drop,
+  .guestbook-pen {
+    transition: none;
+  }
+}

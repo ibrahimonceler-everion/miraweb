@@ -1,4 +1,5 @@
 import { forwardRef } from 'react'
+import Guestbook from './Guestbook'
 import './Magazine.css'
 
 const Magazine = forwardRef(function Magazine({ children }, ref) {
@@ -14,6 +15,7 @@ const Magazine = forwardRef(function Magazine({ children }, ref) {
           {children}
         </div>
         <div className="magazine__texture" />
+        <Guestbook />
       </div>
     </div>
   )
