@@ -44,6 +44,67 @@
   overflow: visible;
 }
 
+/* Halo — kağıda emilen mürekkebin yayılma-çekilmesi */
+.ink-drop__halo {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: ink-spread var(--spread-duration, 7s) ease-in-out infinite;
+  animation-delay: var(--spread-delay, 0s);
+}
+
+@keyframes ink-spread {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.22;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.13;
+  }
+}
+
+/* Hover ripple — çift halka genişler */
+.ink-drop::before,
+.ink-drop::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-color);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+.ink-drop:hover::before {
+  animation: ink-ripple 1.6s ease-out infinite;
+}
+.ink-drop:hover::after {
+  animation: ink-ripple 1.6s ease-out infinite 0.6s;
+}
+
+@keyframes ink-ripple {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.55;
+  }
+  60% { opacity: 0.15; }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-drop__halo {
+    animation: none;
+  }
+  .ink-drop:hover::before,
+  .ink-drop:hover::after {
+    animation: none;
+  }
+}
+
 /* Yaşa göre patina — zamanla solma ve yayılma */
 .ink-drop--fresh .ink-drop__svg { opacity: 0.92; }
 .ink-drop--recent .ink-drop__svg { opacity: 0.75; filter: blur(0.2px); }

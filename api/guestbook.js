@@ -8,9 +8,16 @@ const MAX_MSG = 140
 const MAX_NAME = 24
 const RL_SECONDS = 300 // 5 dk IP başına
 
+// Soluk pastel gül mürekkebi paleti
 const INK_COLORS = [
-  '#1a0f0a', '#2a1810', '#3d2817', '#1e1512',
-  '#241a14', '#2d1f17', '#382418', '#1f120c',
+  '#b26d83', // dusty rose
+  '#9e5870', // aged rose
+  '#a35f70', // soft wine
+  '#ae687e', // muted berry
+  '#8a4d63', // deep pastel rose
+  '#b87692', // soft mauve
+  '#a85f7a', // antique pink
+  '#956275', // worn rose
 ]
 const EDGES = ['top', 'right', 'bottom', 'left']
 

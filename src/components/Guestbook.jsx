@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import useGuestbook from '../hooks/useGuestbook'
 import './Guestbook.css'
@@ -29,6 +29,33 @@ function hashSeed(id) {
   return Math.abs(h) % 1000
 }
 
+// id'den deterministik rastgelelik üret — her damlada sabit "dağılım" için
+function seededRandom(seed) {
+  let s = seed | 0
+  return () => {
+    s = (s * 9301 + 49297) % 233280
+    return s / 233280
+  }
+}
+
+// Damlanın etrafına sıçrayan küçük noktalar üret
+function generateSplatters(id, count = 4) {
+  const rand = seededRandom(hashSeed(id))
+  const splatters = []
+  for (let i = 0; i < count; i++) {
+    const angle = rand() * Math.PI * 2
+    const distance = 8 + rand() * 6
+    const r = 0.6 + rand() * 1.4
+    splatters.push({
+      cx: Math.cos(angle) * distance,
+      cy: Math.sin(angle) * distance,
+      r,
+      opacity: 0.35 + rand() * 0.4,
+    })
+  }
+  return splatters
+}
+
 function getEdgeStyle(edge, offset) {
   const pct = `${(offset * 100).toFixed(2)}%`
   switch (edge) {
@@ -40,32 +67,87 @@ function getEdgeStyle(edge, offset) {
   }
 }
 
-function InkDrop({ note, onClick }) {
+function getCenterOrigin(edge) {
+  // Yeni not: sayfanın merkezinden damlanın kenarına doğru düşer
+  switch (edge) {
+    case 'top': return { x: 0, y: '38vh' }
+    case 'bottom': return { x: 0, y: '-38vh' }
+    case 'left': return { x: '32vw', y: 0 }
+    case 'right': return { x: '-32vw', y: 0 }
+    default: return { x: 0, y: 0 }
+  }
+}
+
+function InkDrop({ note, onClick, isNew }) {
   const age = getAge(note.createdAt)
+  const seed = hashSeed(note.id)
+  const spreadDelay = (seed % 400) / 100
+  const spreadDuration = 6 + (seed % 400) / 100 // 6 - 10s
   const style = {
     '--ink-color': note.color,
-    '--ink-size': `${Math.round(note.size * 20)}px`,
+    '--ink-size': `${Math.round(note.size * 22)}px`,
+    '--spread-delay': `${spreadDelay}s`,
+    '--spread-duration': `${spreadDuration}s`,
     ...getEdgeStyle(note.edge, note.offset),
   }
+
+  const initial = isNew
+    ? { ...getCenterOrigin(note.edge), scale: 1.4, opacity: 0, filter: 'blur(8px)' }
+    : { x: 0, y: 0, scale: 0.2, opacity: 0, filter: 'blur(6px)' }
+
+  const transition = isNew
+    ? {
+        x: { type: 'spring', stiffness: 60, damping: 14 },
+        y: { type: 'spring', stiffness: 60, damping: 14 },
+        scale: { type: 'spring', stiffness: 90, damping: 10, delay: 0.1 },
+        opacity: { duration: 0.4 },
+        filter: { duration: 0.7, delay: 0.2 },
+      }
+    : {
+        scale: { type: 'spring', stiffness: 120, damping: 11, delay: (seed % 500) / 1000 },
+        opacity: { duration: 0.6, delay: (seed % 500) / 1000 },
+        filter: { duration: 0.8, delay: (seed % 500) / 1000 },
+      }
+
   return (
     <motion.button
-      className={`ink-drop ink-drop--${age} ink-drop--${note.edge}`}
+      className={`ink-drop ink-drop--${age} ink-drop--${note.edge}${isNew ? ' ink-drop--new' : ''}`}
       style={style}
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 140, damping: 14, delay: Math.random() * 0.4 }}
+      initial={initial}
+      animate={{ x: 0, y: 0, scale: 1, opacity: 1, filter: 'blur(0px)' }}
+      transition={transition}
       onClick={(e) => { e.stopPropagation(); onClick(note) }}
       aria-label={`${note.author || 'anonim'} tarafından bırakılan not`}
     >
-      <svg viewBox="-10 -10 20 20" className="ink-drop__svg" aria-hidden="true">
+      <svg viewBox="-16 -16 32 32" className="ink-drop__svg" aria-hidden="true">
         <defs>
-          <filter id={`ink-${note.id}`} x="-50%" y="-50%" width="200%" height="200%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed={hashSeed(note.id)} />
-            <feDisplacementMap in="SourceGraphic" scale="3.5" />
+          <filter id={`ink-${note.id}`} x="-100%" y="-100%" width="300%" height="300%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.45" numOctaves="3" seed={hashSeed(note.id)} />
+            <feDisplacementMap in="SourceGraphic" scale="6" />
+          </filter>
+          <filter id={`ink-soft-${note.id}`}>
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed={hashSeed(note.id) + 1} />
+            <feDisplacementMap in="SourceGraphic" scale="2" />
           </filter>
         </defs>
-        <circle r="7" fill="var(--ink-color)" filter={`url(#ink-${note.id})`} />
-        <circle r="2" cx="-2" cy="-2" fill="var(--ink-color)" opacity="0.5" />
+        {/* Ana damla — yumuşak dış halo (yayılma-çekilme animasyonu) */}
+        <circle className="ink-drop__halo" r="8" fill="var(--ink-color)" opacity="0.22" filter={`url(#ink-${note.id})`} />
+        {/* Ana damla — iç gövde */}
+        <circle r="6" fill="var(--ink-color)" filter={`url(#ink-${note.id})`} />
+        {/* Işık yansıması — üst sol */}
+        <circle r="1.6" cx="-1.8" cy="-2" fill="var(--ink-color)" opacity="0.35" filter={`url(#ink-soft-${note.id})`} />
+        {/* Etrafa sıçrayan mürekkep noktaları */}
+        {generateSplatters(note.id).map((s, i) => (
+          <circle
+            key={i}
+            cx={s.cx}
+            cy={s.cy}
+            r={s.r}
+            fill="var(--ink-color)"
+            opacity={s.opacity}
+            filter={`url(#ink-soft-${note.id})`}
+          />
+        ))}
       </svg>
     </motion.button>
   )
@@ -75,6 +157,8 @@ export default function Guestbook() {
   const { notes, submit, submitting, error, clearError } = useGuestbook()
   const [panelOpen, setPanelOpen] = useState(false)
   const [selectedNote, setSelectedNote] = useState(null)
+  // Mount zamanından sonra eklenen notları "yeni" say — farklı animasyon
+  const mountedAt = useRef(Date.now())
   const [message, setMessage] = useState('')
   const [author, setAuthor] = useState('')
   const [website, setWebsite] = useState('') // honeypot
@@ -110,7 +194,12 @@ export default function Guestbook() {
     <>
       <div className="guestbook-drops" aria-hidden={panelOpen || !!selectedNote}>
         {notes.map(note => (
-          <InkDrop key={note.id} note={note} onClick={setSelectedNote} />
+          <InkDrop
+            key={note.id}
+            note={note}
+            onClick={setSelectedNote}
+            isNew={note.createdAt > mountedAt.current}
+          />
         ))}
       </div>
 
