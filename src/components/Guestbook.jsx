@@ -6,6 +6,19 @@ import './Guestbook.css'
 const MAX_MSG = 140
 const DAY = 86400000
 
+// Gül mürekkebi paleti — renk client tarafında belirlenir,
+// böylece eski notlar da otomatik uyumlu olur
+const INK_PALETTE = [
+  '#b26d83', '#9e5870', '#a35f70', '#ae687e',
+  '#8a4d63', '#b87692', '#a85f7a', '#956275',
+]
+
+function pickInkColor(id) {
+  let h = 0
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0
+  return INK_PALETTE[Math.abs(h) % INK_PALETTE.length]
+}
+
 function getAge(ts) {
   const diff = Date.now() - ts
   if (diff < DAY) return 'fresh'
@@ -83,8 +96,9 @@ function InkDrop({ note, onClick, isNew }) {
   const seed = hashSeed(note.id)
   const spreadDelay = (seed % 400) / 100
   const spreadDuration = 6 + (seed % 400) / 100 // 6 - 10s
+  const inkColor = pickInkColor(note.id)
   const style = {
-    '--ink-color': note.color,
+    '--ink-color': inkColor,
     '--ink-size': `${Math.round(note.size * 22)}px`,
     '--spread-delay': `${spreadDelay}s`,
     '--spread-duration': `${spreadDuration}s`,
