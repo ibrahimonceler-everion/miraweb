@@ -42,7 +42,6 @@ function hashSeed(id) {
   return Math.abs(h) % 1000
 }
 
-// id'den deterministik rastgelelik üret — her damlada sabit "dağılım" için
 function seededRandom(seed) {
   let s = seed | 0
   return () => {
@@ -51,7 +50,6 @@ function seededRandom(seed) {
   }
 }
 
-// Damlanın etrafına sıçrayan küçük noktalar üret
 function generateSplatters(id, count = 4) {
   const rand = seededRandom(hashSeed(id))
   const splatters = []
@@ -81,7 +79,6 @@ function getEdgeStyle(edge, offset) {
 }
 
 function getCenterOrigin(edge) {
-  // Yeni not: sayfanın merkezinden damlanın kenarına doğru düşer
   switch (edge) {
     case 'top': return { x: 0, y: '38vh' }
     case 'bottom': return { x: 0, y: '-38vh' }
@@ -95,7 +92,7 @@ function InkDrop({ note, onClick, isNew }) {
   const age = getAge(note.createdAt)
   const seed = hashSeed(note.id)
   const spreadDelay = (seed % 400) / 100
-  const spreadDuration = 6 + (seed % 400) / 100 // 6 - 10s
+  const spreadDuration = 6 + (seed % 400) / 100
   const inkColor = pickInkColor(note.id)
   const style = {
     '--ink-color': inkColor,
@@ -171,12 +168,12 @@ export default function Guestbook() {
   const { notes, submit, submitting, error, clearError } = useGuestbook()
   const [panelOpen, setPanelOpen] = useState(false)
   const [selectedNote, setSelectedNote] = useState(null)
-  // Mount zamanından sonra eklenen notları "yeni" say — farklı animasyon
-  const mountedAt = useRef(Date.now())
   const [message, setMessage] = useState('')
   const [author, setAuthor] = useState('')
   const [website, setWebsite] = useState('') // honeypot
   const [successMsg, setSuccessMsg] = useState(null)
+  // Mount zamanından sonra eklenen notları "yeni" say — farklı animasyon
+  const mountedAt = useRef(Date.now())
 
   const handleSubmit = async (e) => {
     e.preventDefault()

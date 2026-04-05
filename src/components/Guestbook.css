@@ -63,6 +63,12 @@
   }
 }
 
+/* Yaşa göre patina — zamanla solma ve yayılma */
+.ink-drop--fresh .ink-drop__svg { opacity: 0.92; }
+.ink-drop--recent .ink-drop__svg { opacity: 0.75; filter: blur(0.2px); }
+.ink-drop--old .ink-drop__svg { opacity: 0.55; filter: blur(0.5px); }
+.ink-drop--ancient .ink-drop__svg { opacity: 0.38; filter: blur(0.8px); }
+
 /* Hover ripple — çift halka genişler */
 .ink-drop::before,
 .ink-drop::after {
@@ -104,12 +110,6 @@
     animation: none;
   }
 }
-
-/* Yaşa göre patina — zamanla solma ve yayılma */
-.ink-drop--fresh .ink-drop__svg { opacity: 0.92; }
-.ink-drop--recent .ink-drop__svg { opacity: 0.75; filter: blur(0.2px); }
-.ink-drop--old .ink-drop__svg { opacity: 0.55; filter: blur(0.5px); }
-.ink-drop--ancient .ink-drop__svg { opacity: 0.38; filter: blur(0.8px); }
 
 /* ============================================
    Pen button — misafir defterini açar
