@@ -127,6 +127,116 @@
 }
 
 /* ========================
+   ESSAY CARDS (Yazılar page)
+   ======================== */
+.inner-page__essays {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+.essay-card {
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--dark-border);
+  border-radius: 4px;
+  background: var(--dark-card);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.essay-card:hover {
+  border-color: var(--gold-accent-20);
+  background: var(--dark-card-hover);
+}
+
+.essay-card__title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.essay-card__divider {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 1rem;
+}
+
+.essay-card__body {
+  margin-bottom: 1rem;
+}
+
+.essay-card__dropcap {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: var(--text-dark);
+  text-align: justify;
+  margin-bottom: 0.8rem;
+}
+
+.essay-card__dropcap::first-letter {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  float: left;
+  line-height: 0.78;
+  padding-right: 0.4rem;
+  padding-top: 0.1rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.essay-card__paragraph {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: var(--text-dark);
+  text-align: justify;
+  margin-bottom: 0.8rem;
+  text-indent: 1.5em;
+}
+
+.essay-card__closing {
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.essay-card__signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  padding-right: 1rem;
+}
+
+.essay-card__signature-line {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.essay-card__signature span {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ========================
    EDITORIAL PORTRAIT (Şiirler page)
    ======================== */
 .inner-page__portrait {

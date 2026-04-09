@@ -36,6 +36,31 @@ const poems = [
       'Kalbimle gülümsüyorum…',
     ],
   },
+  {
+    id: 3,
+    title: 'Misal',
+    lines: [
+      'Bir kuş kanadında sevinci yakalamak',
+      'Özgürlük misali…',
+      'Bir berrak su gibi dolaşmak',
+      'Hakikat misali…',
+      '',
+      'Her gün yeniden başlamak',
+      'Umudun aydınlığında',
+      'Yeniden doğmak',
+      'Güneş misali…',
+      '',
+      'Seslerin sustuğu yerde duymak',
+      'Fısıltılarda kaybolmak',
+      'Bir noktadan düzlem olmak',
+      'Bütünleşme misali…',
+      '',
+      'Sözcüklerin izinde cümleleri bulmak',
+      'Satırlardan sayfalara akmak',
+      'Arınmak, doğrulmak, var olmak',
+      'Sonsuz olmak…',
+    ],
+  },
 ]
 
 export default function KitaplarPage({ onBack }) {
