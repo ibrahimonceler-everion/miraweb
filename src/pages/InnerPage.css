@@ -353,31 +353,58 @@
   margin-top: 0.15rem;
 }
 
-.oduller-award + .oduller-award {
-  margin-top: 0.5rem;
-}
-
-.oduller-award-divider {
+/* Award tabs (switch between awards) */
+.oduller-tabs {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  margin: 1.75rem auto 1.5rem;
-  max-width: 220px;
+  align-items: stretch;
+  gap: 0;
+  margin: 0 auto 1.25rem;
+  max-width: 420px;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid var(--gold-accent-10, rgba(192, 158, 88, 0.18));
 }
 
-.oduller-award-divider__line {
+.oduller-tab {
+  position: relative;
   flex: 1;
+  background: none;
+  border: none;
+  padding: 0.6rem 0.5rem 0.7rem;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  opacity: 0.6;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.oduller-tab:hover {
+  opacity: 0.9;
+  color: var(--gold);
+}
+
+.oduller-tab--active {
+  color: var(--gold);
+  opacity: 1;
+}
+
+.oduller-tab__label {
+  display: inline-block;
+  white-space: normal;
+}
+
+.oduller-tab__underline {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: -1px;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-
-.oduller-award-divider__ornament {
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  color: var(--gold);
-  letter-spacing: 0.15em;
-  line-height: 1;
 }
 
 .oduller-gallery {
