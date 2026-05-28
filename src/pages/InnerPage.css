@@ -603,6 +603,240 @@
 }
 
 /* ========================
+   SÖYLEŞI (Röportaj page)
+   ======================== */
+.roportaj-content {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+.roportaj-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  margin: 0 auto 1.25rem;
+}
+
+.roportaj-meta__role {
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.roportaj-meta__name {
+  font-family: var(--font-accent);
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  font-style: italic;
+}
+
+.roportaj-dek {
+  font-family: var(--font-accent);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-medium);
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+/* Magazine clipping */
+.roportaj-clip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 2rem;
+  max-width: 360px;
+}
+
+.roportaj-clip__frame {
+  position: relative;
+  width: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--cream);
+  padding: 0.5rem;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.14),
+    0 0 0 1px var(--gold-accent-15);
+  transform: rotate(-1.4deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.roportaj-clip__frame:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    0 0 0 1px var(--gold-accent-25);
+}
+
+.roportaj-clip__frame img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  display: block;
+}
+
+.roportaj-clip__overlay {
+  position: absolute;
+  inset: 0.5rem;
+  background: var(--dark-base);
+  mix-blend-mode: color;
+  opacity: 0.12;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.roportaj-clip__caption {
+  font-family: var(--font-accent);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 0.65rem;
+  text-align: center;
+}
+
+/* Q&A blocks */
+.roportaj-qa {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.roportaj-block {
+  margin-bottom: 1.5rem;
+}
+
+.roportaj-q {
+  position: relative;
+  padding: 0.1rem 0 0.75rem 1rem;
+  border-left: 2px solid var(--gold-dim);
+  margin-bottom: 1rem;
+}
+
+.roportaj-q__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rose-primary);
+  margin-bottom: 0.35rem;
+}
+
+.roportaj-q__text {
+  font-family: var(--font-title);
+  font-size: 1.08rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.roportaj-a {
+  padding-left: 0.25rem;
+}
+
+.roportaj-a__paragraph {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--text-dark);
+  text-align: justify;
+  margin-bottom: 0.8rem;
+}
+
+.roportaj-a__dropcap {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--text-dark);
+  text-align: justify;
+  margin-bottom: 0.8rem;
+}
+
+.roportaj-a__dropcap::first-letter {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  float: left;
+  line-height: 0.78;
+  padding-right: 0.4rem;
+  padding-top: 0.1rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Pull quote */
+.roportaj-pullquote {
+  position: relative;
+  margin: 0.5rem auto 2rem;
+  max-width: 480px;
+  padding: 1.5rem 1.25rem 1.25rem;
+  text-align: center;
+}
+
+.roportaj-pullquote::before,
+.roportaj-pullquote::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.roportaj-pullquote::after {
+  margin-top: 1rem;
+}
+
+.roportaj-pullquote__mark {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  line-height: 0.5;
+  color: var(--gold-light);
+  margin: 0.75rem 0 0.25rem;
+}
+
+.roportaj-pullquote__text {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.roportaj-pullquote__cite {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .roportaj-clip {
+    max-width: 280px;
+  }
+
+  .roportaj-q__text {
+    font-size: 1rem;
+  }
+
+  .roportaj-pullquote__text {
+    font-size: 1.1rem;
+  }
+}
+
+/* ========================
    POEMS (Şiirler page)
    ======================== */
 .inner-page__poems {

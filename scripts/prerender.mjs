@@ -106,6 +106,29 @@ const seoContent = {
     </div>
   `,
 
+  '/soylesi': `
+    <div class="seo-fallback">
+      <header>
+        <h1>Mira Çenge | Şair ve Yazar</h1>
+        <h2>Söyleşi</h2>
+        <p>Kelimelerin ardındaki ses</p>
+      </header>
+      <main>
+        <article>
+          <p>Ödüllü yazar Mira Çenge ile sizin için konuştuk. Gazeteci yazar Cihat Dündar'ın sorularını yanıtlayan Mira Çenge, yazarlık kariyerini ve yakında okuyucu ile buluşacak olan eseri ile ilgili merak edilenleri anlattı.</p>
+          <h3>Mira Çenge kendi içinde kimdir?</h3>
+          <p>Ben kendi içimde kelimelerle düşünen, duygularla büyüyen ve hayata anlam arayan bir yolcuyum. Yazmak benim için sadece bir meslek ya da üretim biçimi değil; insan ruhuna dokunmanın en zarif yollarından biri. Mira Çenge kendi içinde; güçlü görünse de kalbinde hâlâ hayalleriyle konuşan o küçük kız çocuğunu taşıyan biridir.</p>
+          <h3>Eseriniz hakkında</h3>
+          <p>Yakın zamanda okuyucuyla buluşacak olan eserim, aslında hayata dair uzun yıllar içimde biriktirdiğim düşüncelerin ve gözlemlerin bir yansıması. Eserimi, yaşamın güzelliği üzerine kurulmuş modern bir manifesto olarak tanımlayabilirim. Okuyucu yalnızca satırlarla değil, kendi iç dünyasıyla da karşılaşacak.</p>
+          <h3>Yılın İlham Veren Kadın Yazarı ödülü</h3>
+          <p>Altın Zirve ve Kariyer Ödülleri'nde "Yılın İlham Veren Kadın Yazarı" ödülünü almak benim için yalnızca bir başarı değil, aynı zamanda çok derin bir manevi anlam taşıyan özel bir yolculuğun karşılığıydı. Bu ödül benim için bir son değil; tam aksine daha büyük hayallerin başlangıcı. Benim en büyük hedefim; yıllar sonra bile bir cümleyle bir insanın kalbinde yaşamaya devam edebilmek.</p>
+          <footer><strong>Söyleşi: Cihat Dündar</strong></footer>
+        </article>
+      </main>
+      <nav><a href="/">Ana Sayfa</a></nav>
+    </div>
+  `,
+
   '/serbest': `
     <div class="seo-fallback">
       <header>
