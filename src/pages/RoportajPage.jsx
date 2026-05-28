@@ -79,7 +79,7 @@ export default function RoportajPage({ onBack }) {
           <figure className="roportaj-clip">
             <div className="roportaj-clip__frame">
               <img
-                src="/image.png"
+                src="/roportaj.webp"
                 alt="Mira Çenge ile dergi röportajı"
                 loading="lazy"
                 onError={() => setClipVisible(false)}
