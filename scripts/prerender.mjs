@@ -110,7 +110,7 @@ const seoContent = {
     <div class="seo-fallback">
       <header>
         <h1>Mira Çenge | Şair ve Yazar</h1>
-        <h2>Söyleşi</h2>
+        <h2>Röportaj</h2>
         <p>Kelimelerin ardındaki ses</p>
       </header>
       <main>
@@ -122,7 +122,7 @@ const seoContent = {
           <p>Yakın zamanda okuyucuyla buluşacak olan eserim, aslında hayata dair uzun yıllar içimde biriktirdiğim düşüncelerin ve gözlemlerin bir yansıması. Eserimi, yaşamın güzelliği üzerine kurulmuş modern bir manifesto olarak tanımlayabilirim. Okuyucu yalnızca satırlarla değil, kendi iç dünyasıyla da karşılaşacak.</p>
           <h3>Yılın İlham Veren Kadın Yazarı ödülü</h3>
           <p>Altın Zirve ve Kariyer Ödülleri'nde "Yılın İlham Veren Kadın Yazarı" ödülünü almak benim için yalnızca bir başarı değil, aynı zamanda çok derin bir manevi anlam taşıyan özel bir yolculuğun karşılığıydı. Bu ödül benim için bir son değil; tam aksine daha büyük hayallerin başlangıcı. Benim en büyük hedefim; yıllar sonra bile bir cümleyle bir insanın kalbinde yaşamaya devam edebilmek.</p>
-          <footer><strong>Söyleşi: Cihat Dündar</strong></footer>
+          <footer><strong>Röportaj: Cihat Dündar</strong></footer>
         </article>
       </main>
       <nav><a href="/">Ana Sayfa</a></nav>

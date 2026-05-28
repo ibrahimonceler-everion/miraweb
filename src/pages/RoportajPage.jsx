@@ -50,7 +50,7 @@ export default function RoportajPage({ onBack }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        <h2 className="inner-page__title">Söyleşi</h2>
+        <h2 className="inner-page__title">Röportaj</h2>
         <p className="inner-page__subtitle">
           Kelimelerin ardındaki ses
         </p>
@@ -63,7 +63,7 @@ export default function RoportajPage({ onBack }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        <span className="roportaj-meta__role">Söyleşi</span>
+        <span className="roportaj-meta__role">Röportaj</span>
         <span className="roportaj-meta__name">Cihat Dündar</span>
       </motion.div>
 

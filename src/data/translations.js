@@ -11,7 +11,7 @@ export const translations = {
       poetry: 'Şiirler',
       thoughts: 'Düşünceler',
       awards: 'Ödüller',
-      interview: 'Söyleşi',
+      interview: 'Röportaj',
     },
   },
   en: {
