@@ -4,14 +4,19 @@ import { t } from '../data/translations'
 import './StarMap.css'
 
 const getStars = (lang) => [
-  { id: 1, label: t(lang, 'starMap.writings'), x: 22, y: 22, page: 1 },
-  { id: 2, label: t(lang, 'starMap.poetry'), x: 78, y: 22, page: 2 },
+  { id: 1, label: t(lang, 'starMap.writings'), x: 22, y: 25, page: 1 },
+  { id: 2, label: t(lang, 'starMap.poetry'), x: 78, y: 25, page: 2 },
   { id: 3, label: t(lang, 'starMap.thoughts'), x: 22, y: 68, page: 3 },
   { id: 4, label: t(lang, 'starMap.awards'), x: 78, y: 68, page: 4 },
-  { id: 5, label: t(lang, 'starMap.interview'), x: 50, y: 45, page: 5 },
+  { id: 5, label: t(lang, 'starMap.interview'), x: 50, y: 46, page: 5 },
+  { id: 6, label: t(lang, 'starMap.biography'), x: 50, y: 8, page: 6 },
 ]
 
-const connections = [[0, 1], [1, 3], [3, 2], [2, 0], [0, 4], [1, 4], [2, 4], [3, 4]]
+const connections = [
+  [0, 1], [1, 3], [3, 2], [2, 0],
+  [0, 4], [1, 4], [2, 4], [3, 4],
+  [5, 0], [5, 1], [5, 4],
+]
 
 /* Comet (language toggle) position — bottom right, outside the triangle */
 const comet = { x: 88, y: 90 }

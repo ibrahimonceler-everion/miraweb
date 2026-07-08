@@ -129,6 +129,29 @@ const seoContent = {
     </div>
   `,
 
+  '/biyografi': `
+    <div class="seo-fallback">
+      <header>
+        <h1>Mira Çenge | Şair ve Yazar</h1>
+        <h2>Biyografi</h2>
+        <p>Sezgisel bir dokunuş, hissel bir karşılaşma…</p>
+      </header>
+      <main>
+        <article>
+          <p>Boğaz'ın hafızasını taşıyan Beykoz'da başlayan bir hayat, zamanla kelimelerin ve insanların hikâyelerine yöneldi. Çocukluk yıllarında dalga sesleriyle kurulan o görünmez bağ, edebiyatın sesine dönüştü; denizin ufkunda aranan anlam, zamanla insan ruhunun hikâyesinde karşılık buldu.</p>
+          <p>Türk Dili ve Edebiyatı öğretmeni, yazar ve şair olan Mira Çenge, kalemi yalnızca anlatmak için değil; anlamak, hissetmek ve hissettirmek için kullanmaktadır. Onun dünyasında edebiyat, insan ruhları arasında kurulan en zarif temaslardan biridir. Şiirleri ve seslendirmeleriyle kelimelere yalnızca anlam değil, duygu da kazandırmaktadır.</p>
+          <p>Mira Çenge'nin kalemini, duruşunu ve insanlara yaklaşımını şekillendiren iki değer vardır: zarafet ve nezaket.</p>
+          <p>Meslek yaşamı boyunca gençlerin gelişimine katkı sunarken, özel eğitim alanındaki çalışmalarıyla özel bireylerin hayatlarına dokunmuş; toplumsal sorumluluğu bireysel başarının önünde tutmuştur. Kadınların güçlenmesine ve toplumsal dayanışmaya duyduğu inanç, çalışmalarına olduğu kadar eserlerine de yansımaktadır. Edebiyat, eğitim ve sosyal sorumluluk alanlarında ortaya koyduğu çalışmalar; Altın Zirve Kariyer Ödülleri'nde "Yılın İlham Veren Kadın Yazarı", Uluslararası Kariyer Ödülleri'nde ise "Yılın En İyi Çıkış Yapan Yazarı" unvanlarıyla takdir edilmiştir.</p>
+          <p>Kalp hafızasına inanan Mira Çenge için insanı insan yapan şey, hatırladıkları değil; kalbinde yaşatmayı seçtikleridir. Sevgiyle söylenen bir söz, iyilikle dokunulan bir hayat ve samimiyetle kurulan bir bağ… Zamanın silemediği bütün güzellikler, onun satırlarında yeniden hayat bulur.</p>
+          <p>Kelimelerinin sınırları aşarak farklı coğrafyalardaki insanlara ulaşmasını ve umuda ihtiyaç duyan her kalbe dokunmasını amaçlayan Mira Çenge için edebiyat, zamana bırakılmış zarif bir izdir; yıllar sonra bile bir kalpte yeniden çiçek açabilen bir iz…</p>
+          <p>Boğaz'ın kıyılarında başlayan bu hikâye, bugün Mira Çenge'nin kaleminde; insan ruhuna umut, kalplere sevgi ve zamana iz bırakma yolculuğu olarak devam etmektedir.</p>
+          <footer><strong>Mira Çenge</strong></footer>
+        </article>
+      </main>
+      <nav><a href="/">Ana Sayfa</a></nav>
+    </div>
+  `,
+
   '/serbest': `
     <div class="seo-fallback">
       <header>

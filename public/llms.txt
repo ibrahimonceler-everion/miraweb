@@ -7,6 +7,7 @@ Mira Çenge, Türk edebiyatında özgün bir ses olarak öne çıkan şair ve ya
 ## Sayfalar
 
 - [Ana Sayfa](https://miracenge.com/): Mira Çenge'nin kişisel web sitesi, biyografi ve eserlerine genel bakış
+- [Biyografi](https://miracenge.com/biyografi): Mira Çenge'nin biyografisi - Beykoz'da başlayan hayatı, Türk Dili ve Edebiyatı öğretmenliği, yazarlığı, ödülleri ve edebiyat anlayışı
 - [Yazılar](https://miracenge.com/yazilar): Mira Çenge'nin edebiyat yazıları - yaşam, hürriyet, hakikat ve anlam üzerine düzyazılar
 - [Şiirler](https://miracenge.com/siirler): Mira Çenge'nin şiirleri - "Düş" ve "Zaman" başlıklı şiirler
 - [Ödüller](https://miracenge.com/oduller): Mira Çenge'nin edebiyat ödülleri - 12. Uluslararası Başarı ve Kariyer Ödülleri, Yılın En İyi Çıkış Yapan Kadın Yazar

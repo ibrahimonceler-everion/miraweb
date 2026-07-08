@@ -12,6 +12,7 @@ export const translations = {
       thoughts: 'Düşünceler',
       awards: 'Ödüller',
       interview: 'Röportaj',
+      biography: 'Biyografi',
     },
   },
   en: {
@@ -27,6 +28,7 @@ export const translations = {
       thoughts: 'Reflections',
       awards: 'Awards',
       interview: 'Interview',
+      biography: 'Biography',
     },
   },
 }
